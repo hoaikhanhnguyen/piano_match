@@ -1,4 +1,15 @@
-.container {
-  background-image: url(https://k4iblog.files.wordpress.com/2016/01/deemo-background-edited-copy.jpg?w=1920&h=1080&crop=1);
-  background-size: cover;
+.container-fluid {
+    background-color: black;
+    //background-image: url(https://k4iblog.files.wordpress.com/2016/01/deemo-background-edited-copy.jpg?w=1920&h=1080&crop=1);
+    //background-size: cover;
+}
+img {
+    display: block;
+    margin: auto;
+    width: 100%;
+}
+.col-md-4{
+    border: 1px solid white;
+    border-radius: 5px;
+    text-align: center;
 }
