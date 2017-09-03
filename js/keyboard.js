@@ -3,8 +3,8 @@ function Keyboard() {
 
 //White Keys
     this.create_white_keys = function(){
-        for (i = 0; i <= 24; i++) {
-            $(".keyboard").append($("<div>").addClass("white_key"));
+        for (i = 0; i < 24; i++) {
+            $(".white_keyboard").append($("<div>").addClass("white_key").addClass(`white${i}`));
         }
     };
 
@@ -16,11 +16,11 @@ function Keyboard() {
         for (i = 1; i < 24; i++) {
             if (skip_key === key[current]) {
                 console.log('             ');
-                $(".keyboard").append($("<div>").addClass("skip_key"));
+                $(".black_keyboard").append($("<div>").addClass("skip_key"));
                 current = 1 - current;
                 skip_key = 1;
             } else {
-                $(".keyboard").append($("<div>").addClass("black_key"));
+                $(".black_keyboard").append($("<div>").addClass("black_key").addClass(`black${i}`));
                 skip_key++;
             }
         }
