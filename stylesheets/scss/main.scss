@@ -1,6 +1,21 @@
 @import "variables";
 @import "mixins";
 
+@for $i from 0 through 6{
+    .white#{$i}{
+        opacity: .3;
+    }
+}
+@for $i from 7 through 13{
+    .white#{$i} {
+        opacity: .6;
+    }
+}
+@for $i from 14 through 23{
+    .white#{$i}{
+        opacity: .3;
+    }
+}
 .container-fluid {
     //background-color: black;
     background-image: $backgroundImg;
@@ -37,7 +52,7 @@ img {
     background-color: $whiteKey;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
-    opacity: .5;
+    //opacity: .5;
 }
 .keyboard{
     width: auto;
@@ -57,4 +72,11 @@ img {
 }
 .white_keyboard{
     width: auto;
+}
+.music_sheet{
+    margin: 0;
+    background-color: white;
+}
+a{
+    font-family: "Calibri Light";
 }
