@@ -1,5 +1,5 @@
-@import "scss/_variables";
-
+@import "variables";
+@import "mixins";
 
 .container-fluid {
     //background-color: black;
@@ -19,21 +19,15 @@ img {
 .black_key{
     background-color: $blackKey;
     display: inline-block;
-    margin-right: 20px;
-    height: 120px;
-    width: 24px;
-    border: 1px solid white;
+    @include black_key;
+    border-radius: 2px;
     border-bottom: none;
     &:hover{
-        border: 1px solid blueviolet;
+        border: $black_key_hover_border;
     }
 }
 .skip_key{
-    display: inline-block;
-    margin-right: 20px;
-    width: 27px;
-    border: none;
-    background-color: transparent;
+    @include skip_key;
 }
 .white_key{
     display: inline-block;
@@ -50,10 +44,11 @@ img {
     position: relative;
     height: $keyboard_height;
     margin: $keyboard_margin;
-    opacity: .9;
-    :hover{
-        opacity: 1;
+    opacity: $keyboard_opacity;
+    :hover {
+        opacity: $keyboard_hover_opacity;
     }
+    //-webkit-transform: scale3d(1, 1, 2) rotate3d(1, 0, 0, 60deg);
 }
 .black_keyboard{
     width: auto;

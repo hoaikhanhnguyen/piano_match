@@ -19,6 +19,7 @@ img {
   height: 120px;
   width: 24px;
   border: 1px solid white;
+  border-radius: 2px;
   border-bottom: none; }
   .black_key:hover {
     border: 1px solid blueviolet; }
@@ -45,7 +46,7 @@ img {
   position: relative;
   height: 192px;
   margin: 146px 0 26px 46px;
-  opacity: .9; }
+  opacity: 0.9; }
   .keyboard :hover {
     opacity: 1; }
 
