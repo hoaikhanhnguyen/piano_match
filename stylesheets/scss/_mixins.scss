@@ -1,0 +1,15 @@
+@import "variables";
+
+@mixin black_key{
+    margin-right: $black_key_margin-right;
+    height: $black_key_height;
+    width: $black_key_width;
+    border: $black_key_border;
+}
+@mixin skip_key{
+    display: inline-block;
+    margin-right: $skip_key_margin-right;
+    width: $skip_key_width;
+    border: none;
+    background-color: transparent;
+}
