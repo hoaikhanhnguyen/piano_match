@@ -75,7 +75,11 @@ img {
 }
 .music_sheet{
     margin: 0;
-    background-color: white;
+    background-image: url(../../images/music_sheet.png);
+    background-size: cover;
+    border-radius: 10px;
+    overflow: inherit;
+    opacity: .8;
 }
 a{
     font-family: "Calibri Light";
