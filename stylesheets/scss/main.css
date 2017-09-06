@@ -70,18 +70,16 @@
 .white23 {
   opacity: .3; }
 
-.container-fluid {
+body {
   background-image: url(../../images/piano-bg.jpg);
   background-size: cover; }
 
 img {
   display: block;
   margin: auto;
-  width: 55%; }
+  width: 50%; }
 
 .col-md-4 {
-  border: 1px solid black;
-  border-radius: 5px;
   text-align: center; }
 
 .black_key {
@@ -116,7 +114,7 @@ img {
   width: auto;
   position: relative;
   height: 192px;
-  margin: 146px 0 26px 46px;
+  margin: 90px 0 26px 46px;
   opacity: 0.9; }
   .keyboard :hover {
     opacity: 1; }
@@ -130,12 +128,10 @@ img {
   width: auto; }
 
 .music_sheet {
-  margin: 0;
-  background-image: url(../../images/music_sheet.png);
+  margin: 12px 0;
+  background-image: url(../../images/music_sheet7.png);
   background-size: cover;
-  border-radius: 10px;
-  overflow: inherit;
-  opacity: .8; }
+  border-radius: 10px; }
 
 a {
   font-family: "Calibri Light"; }

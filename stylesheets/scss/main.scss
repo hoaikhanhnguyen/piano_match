@@ -16,19 +16,21 @@
         opacity: .3;
     }
 }
-.container-fluid {
-    //background-color: black;
+body{
     background-image: $backgroundImg;
     background-size: cover;
+}
+.container-fluid {
+    //background-color: black;
+    //background-image: $backgroundImg;
+    //background-size: cover;
 }
 img {
     display: block;
     margin: auto;
-    width: 55%;
+    width: 50%;
 }
 .col-md-4{
-    border: 1px solid black;
-    border-radius: 5px;
     text-align: center;
 }
 .black_key{
@@ -74,12 +76,11 @@ img {
     width: auto;
 }
 .music_sheet{
-    margin: 0;
-    background-image: url(../../images/music_sheet.png);
+    margin: 12px 0;
+    background-image: url(../../images/music_sheet7.png);
     background-size: cover;
     border-radius: 10px;
-    overflow: inherit;
-    opacity: .8;
+    //opacity: .8;
 }
 a{
     font-family: "Calibri Light";
