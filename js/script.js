@@ -84,3 +84,34 @@ function reset_button(){
 };
 
 
+
+function stackShuffle () {
+    //loop until array is empty
+    let audioFiles = [];
+    for (i = 36; i < 47; i++) {
+        audioFiles.push(`piano_sounds/0${i}.wav`)
+    }
+    let audioFilesCopy = audioFiles.slice();
+
+    for (var i = 0; i < audioFiles.length; i++) {
+        var card_selected = Math.floor(Math.random() * audioFilesCopy.length);
+        $('#'+i+"> img").attr("src", audioFilesCopy[card_selected]);
+        audioFilesCopy.splice(card_selected, 1);
+    }
+}
+
+const keyObject = {
+    'white7': '036.wav',
+    'black8': '037.wav',
+    'white8': '038.wav',
+    'black9': '039.wav',
+    'white9': '040.wav',
+    'white10': '041.wav',
+    'black11': '042.wav',
+    'white11': '043.wav',
+    'black12':'044.wav',
+    'white12': '045.wav',
+    'black13': '046.wav',
+    'white13': '047.wav'
+};
+

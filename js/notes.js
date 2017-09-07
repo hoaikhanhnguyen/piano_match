@@ -23,7 +23,7 @@ for(i=0; i<whiteKeys.length;i++) {
     }).on('mouseleave', function () {
         $(currentKey).css("opacity", 0.6);
         if(isDown){
-
+//
         }
     }).on('mouseover', function(){
         if(isDown){
@@ -54,33 +54,7 @@ for(i=0; i<blackKeys.length;i++) {
 
 
 // keypresses
-let allowed = true;
-$(window).keydown(function(e){
-    if(e.keyCode ===69 && allowed === true){
-        playSound(audioFiles[0]);
-        $(".white7").css("opacity", 1);
-        allowed = false;
-    }
-});
-$(window).keyup(function(e){
-    if(e.keyCode ===69){
-        $(".white7").css("opacity", 0.6);
-        allowed = true;
-    }
-});
-$(window).keydown(function(e){
-    if(e.keyCode ===82 && allowed === true){
-        playSound(audioFiles[1]);
-        $(".white8").css("opacity", 1);
-        allowed = false;
-    }
-});
-$(window).keyup(function(e){
-    if(e.keyCode ===82){
-        $(".white8").css("opacity", 0.6);
-        allowed = true;
-    }
-});
+
 
 //audio object
 function playSound(src){
