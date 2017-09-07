@@ -37,11 +37,9 @@ img {
     background-color: $blackKey;
     display: inline-block;
     @include black_key;
-    border-radius: 2px;
-    border-bottom: none;
-    &:hover{
-        border: $black_key_hover_border;
-    }
+}
+.black_key_select{
+    border: $black_key_hover_border;
 }
 .skip_key{
     @include skip_key;
@@ -62,9 +60,9 @@ img {
     height: $keyboard_height;
     margin: $keyboard_margin;
     opacity: $keyboard_opacity;
-    :hover {
-        opacity: $keyboard_hover_opacity;
-    }
+    //:hover {
+    //    opacity: $keyboard_hover_opacity;
+    //}
     //-webkit-transform: scale3d(1, 1, 2) rotate3d(1, 0, 0, 60deg);
 }
 .black_keyboard{

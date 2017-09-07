@@ -5,6 +5,8 @@
     height: $black_key_height;
     width: $black_key_width;
     border: $black_key_border;
+    border-radius: 2px;
+    border-bottom: none;
 }
 @mixin skip_key{
     display: inline-block;

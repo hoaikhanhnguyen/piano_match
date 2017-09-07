@@ -1,9 +1,91 @@
+//preload
+let audioFiles = [];
+for (i = 36; i < 47; i++) {
+    audioFiles.push(`piano_sounds/0${i}.wav`)
+}
+audioFiles.preload = "auto";
+
+
+//click handlers
+let whiteKeys = [36, 38, 40, 41, 43, 45, 47 ];
+let blackKeys = [37, 39, 42, 44, 46];
+let isDown = false;
+for(i=0; i<whiteKeys.length;i++) {
+    let currentKey = $(`.white${i+7}`)[0];
+    let currentSound = `piano_sounds/0${whiteKeys[i]}.wav`;
+    $(currentKey).on('mousedown', function () {
+        playSound(currentSound);
+        $(currentKey).css("opacity", 1);
+        isDown = true;
+    }).on('mouseup', function () {
+        $(currentKey).css("opacity", 0.6);
+        isDown = false;
+    }).on('mouseleave', function () {
+        $(currentKey).css("opacity", 0.6);
+        if(isDown){
+
+        }
+    }).on('mouseover', function(){
+        if(isDown){
+            playSound(currentSound);
+            $(currentKey).css("opacity", 1);
+        }
+    });
+}
+for(i=0; i<blackKeys.length;i++) {
+    let currentKey = $(`.black${i+8}`)[0];
+    let currentSound = `piano_sounds/0${blackKeys[i]}.wav`;
+    $(currentKey).on('mousedown', function () {
+        playSound(currentSound);
+        $(currentKey).addClass("black_key_select");
+        isDown = true;
+    }).on('mouseup', function () {
+        $(currentKey).removeClass("black_key_select");
+        isDown = false;
+    }).on('mouseleave', function () {
+        $(currentKey).removeClass("black_key_select");
+    }).on('mouseover', function(){
+        if(isDown === true){
+            playSound(currentSound);
+            $(currentKey).addClass("black_key_select");
+        }
+    });
+}
+
+
+// keypresses
+let allowed = true;
+$(window).keydown(function(e){
+    if(e.keyCode ===69 && allowed === true){
+        playSound(audioFiles[0]);
+        $(".white7").css("opacity", 1);
+        allowed = false;
+    }
+});
+$(window).keyup(function(e){
+    if(e.keyCode ===69){
+        $(".white7").css("opacity", 0.6);
+        allowed = true;
+    }
+});
+$(window).keydown(function(e){
+    if(e.keyCode ===82 && allowed === true){
+        playSound(audioFiles[1]);
+        $(".white8").css("opacity", 1);
+        allowed = false;
+    }
+});
+$(window).keyup(function(e){
+    if(e.keyCode ===82){
+        $(".white8").css("opacity", 0.6);
+        allowed = true;
+    }
+});
+
+//audio object
 function playSound(src){
     const player = new Audio();
     player.src = src;
-    player.onended = function(){
-        console.log('player done playing')
-    };
     player.play();
 }
 
@@ -21,8 +103,8 @@ function playNotes(noteArray){
         'g#':'044.wav',
         'a': '045.wav',
         'a#': '046.wav',
-        'b': '046.wav'
-    }
+        'b': '047.wav'
+    };
     const timePerNote = 250;
     var notePosition = 0;
     function triggerNote(){
