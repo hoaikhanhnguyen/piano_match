@@ -91,8 +91,9 @@ img {
   border: 1px solid white;
   border-radius: 2px;
   border-bottom: none; }
-  .black_key:hover {
-    border: 1px solid blueviolet; }
+
+.black_key_select {
+  border: 1px solid blueviolet; }
 
 .skip_key {
   display: inline-block;
@@ -116,8 +117,6 @@ img {
   height: 192px;
   margin: 90px 0 26px 46px;
   opacity: 0.9; }
-  .keyboard :hover {
-    opacity: 1; }
 
 .black_keyboard {
   width: auto;
