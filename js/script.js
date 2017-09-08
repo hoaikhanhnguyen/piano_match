@@ -18,7 +18,8 @@ let first_card_clicked = null;
 let second_card_clicked = null;
 let total_possible_matches = 12;
 let cant_click_card_twice = false;
-
+let last_sound_played = null;
+let allow_replay = false;
 //Game info area variables
 
 let matches =0;
@@ -32,13 +33,12 @@ $(document).ready(function() {
     stackShuffle();
     $(".card").click(card_clicked);
     $(".key").click(key_clicked);
+    $("#previous_sound").click(play_previous_sound);
     // $(".reset").click(reset_button);
-    // display_stats();
 });
 function card_clicked() {
     console.log(this);
     if(cant_click_card_twice){
-        playSound($(this).attr("sound"));
         console.log("cant CLICK. Please click a key ");
         return
     }
@@ -48,10 +48,11 @@ function card_clicked() {
     });
     if (first_card_clicked == null && cant_click_card_twice === false) {
         playSound($(this).attr("sound"));
+        last_sound_played = $(this).attr("sound")
         cant_click_card_twice = true;
+        allow_replay = true;
         return first_card_clicked = $(this);
     }
-        display_stats();
 }
 function key_clicked(){
     console.log(this);
@@ -68,6 +69,7 @@ function key_clicked(){
             score += 1000*score_multiplier;
             score_multiplier++;
             display_score();
+            display_accuracy();
                     if (matches === total_possible_matches) {
                         alert("You have won!");
                     }
@@ -81,21 +83,29 @@ function key_clicked(){
             second_card_clicked = null;
             cant_click_card_twice = false;
             score_multiplier = 1;
+            display_accuracy();
         }
+        allow_replay = false;
+    }
+}
+
+function play_previous_sound(){
+    if(allow_replay) {
+        playSound(last_sound_played);
+        if(score > 100){
+            score = score - 100;
+        }
+        display_score();
     }
 }
 //GAME INFO AREA FUNCTIONS
 function display_score(){
     $("#score").text(`Score: ${score}`);
 }
-
-// function display_stats(){
-//     // $(".games-played .value").text(games_played);  // inserts games_played value into ".games-played.value" element
-//     $(".attempts .value").text(attempts);   //insert attempts value into ".attempts.value" element
-//     accuracy = (Math.floor((matches / attempts) * 100)) + "%";    //formats accuracy to a percentage with %sign
-//     $(".accuracy .value").text(accuracy);   //inserts formatted accuracy into ".accuracy.value" element
-//     return;
-// };
+function display_accuracy(){
+        accuracy = (Math.floor((matches / attempts) * 100)) + "%";
+        $("#accuracy").text(`Accuracy: ${accuracy}`);   //inserts formatted accuracy into ".accuracy.value" element
+}
 // function reset_stats(){
 //     accuracy = 0;     //resets accuracy to 0
 //     match_counter = 0;      //resets matches to 0
