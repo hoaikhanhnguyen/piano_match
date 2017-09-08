@@ -11,7 +11,7 @@ let whiteKeys = [36, 38, 40, 41, 43, 45, 47 ];
 let blackKeys = [37, 39, 42, 44, 46];
 let isDown = false;
 for(i=0; i<whiteKeys.length;i++) {
-    let currentKey = $(`.white${i+7}`)[0];
+    let currentKey = $(`#white${i+7}`)[0];
     let currentSound = `piano_sounds/0${whiteKeys[i]}.wav`;
     $(currentKey).on('mousedown', function () {
         playSound(currentSound);
@@ -22,9 +22,6 @@ for(i=0; i<whiteKeys.length;i++) {
         isDown = false;
     }).on('mouseleave', function () {
         $(currentKey).css("opacity", 0.6);
-        if(isDown){
-//
-        }
     }).on('mouseover', function(){
         if(isDown){
             playSound(currentSound);

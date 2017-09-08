@@ -4,7 +4,7 @@ function Keyboard() {
 //White Keys
     this.create_white_keys = function(){
         for (i = 0; i < 24; i++) {
-            $(".white_keyboard").append($("<div>").addClass("white_key").addClass(`white${i}`));
+            $(".white_keyboard").append($("<div>").addClass("white_key").attr("id",`white${i}`).addClass("key"));
         }
     };
 

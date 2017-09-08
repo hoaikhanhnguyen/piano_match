@@ -2,17 +2,17 @@
 @import "mixins";
 
 @for $i from 0 through 6{
-    .white#{$i}{
+    #white#{$i}{
         opacity: .3;
     }
 }
 @for $i from 7 through 13{
-    .white#{$i} {
+    #white#{$i} {
         opacity: .6;
     }
 }
 @for $i from 14 through 23{
-    .white#{$i}{
+    #white#{$i}{
         opacity: .3;
     }
 }
