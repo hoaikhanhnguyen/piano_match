@@ -8,7 +8,7 @@ audioFiles.preload = "auto";
 
 //click handlers
 let whiteKeys = [36, 38, 40, 41, 43, 45, 47 ];
-let blackKeys = [37, 39, 42, 44, 46];
+let blackKeys = [37, 39, 0, 42, 44, 46];
 let isDown = false;
 for(i=0; i<whiteKeys.length;i++) {
     let currentKey = $(`#white${i+7}`)[0];
@@ -30,7 +30,7 @@ for(i=0; i<whiteKeys.length;i++) {
     });
 }
 for(i=0; i<blackKeys.length;i++) {
-    let currentKey = $(`.black${i+8}`)[0];
+    let currentKey = $(`#black${i+8}`)[0];
     let currentSound = `piano_sounds/0${blackKeys[i]}.wav`;
     $(currentKey).on('mousedown', function () {
         playSound(currentSound);
