@@ -20,7 +20,7 @@ function Keyboard() {
                 current = 1 - current;
                 skip_key = 1;
             } else {
-                $(".black_keyboard").append($("<div>").addClass("black_key").addClass(`black${i}`));
+                $(".black_keyboard").append($("<div>").addClass("black_key").attr("id", `black${i}`).addClass("key"));
                 skip_key++;
             }
         }

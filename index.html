@@ -38,11 +38,15 @@
                             <!--</button>-->
                         <!--</form>-->
                         <ul class="nav navbar-nav navbar-right">
-                            <li>
-                                <a style="pointer-events: none; cursor: default;" href="#">Accuracy</a>
-                            </li>
-                            <li>
-                                <a style="pointer-events: none; cursor: default;" href="#">Score</a>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Rules<strong class="caret"></strong></a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a style="pointer-events: none; cursor: default;" href="#">
+                                            Click on the musical notes and match them with the keys on the piano!
+                                        </a>
+                                    </li>
+                                </ul>
                             </li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Modes<strong class="caret"></strong></a>
@@ -62,6 +66,12 @@
                                         <a href="#">Music Off</a>
                                     </li>
                                 </ul>
+                            </li>
+                            <li>
+                                <a style="pointer-events: none; cursor: default;" href="#" id="accuracy">Accuracy: </a>
+                            </li>
+                            <li>
+                                <a style="pointer-events: none; cursor: default;" href="#" id="score">Score: 00000</a>
                             </li>
                         </ul>
                     </div>
