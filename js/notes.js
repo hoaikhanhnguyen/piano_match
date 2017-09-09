@@ -54,11 +54,10 @@ for(i=0; i<blackKeys.length;i++) {
 
 //audio object
 function playSound(src){
-    const player = new Audio();
+    var player = new Audio();
     player.src = src;
     player.play();
 }
-
 
 function playNotes(noteArray){
     const noteObject = {
@@ -97,4 +96,4 @@ function playNotes(noteArray){
     triggerNote();
 
 }
-// playNotes(['e300','e300','f300','g300','g300','f300','e300','d300','c300','c300','d300','e300','e500','d130','d130'])
+// const ode_to_joy = playNotes(['e300','e300','f300','g300','g300','f300','e300','d300','c300','c300','d300','e300','e500','d130','d130']);

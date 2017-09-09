@@ -25,6 +25,10 @@ body{
     //background-image: $backgroundImg;
     //background-size: cover;
 }
+
+a{
+    font-family: "Calibri Light";
+}
 img {
     display: block;
     margin: auto;
@@ -52,7 +56,6 @@ img {
     background-color: $whiteKey;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
-    //opacity: .5;
 }
 .keyboard{
     width: auto;
@@ -60,10 +63,6 @@ img {
     height: $keyboard_height;
     margin: $keyboard_margin;
     opacity: $keyboard_opacity;
-    //:hover {
-    //    opacity: $keyboard_hover_opacity;
-    //}
-    //-webkit-transform: scale3d(1, 1, 2) rotate3d(1, 0, 0, 60deg);
 }
 .black_keyboard{
     width: auto;
@@ -81,19 +80,40 @@ img {
     border-radius: 10px;
     //opacity: .8;
 }
-a{
-    font-family: "Calibri Light";
-}
 .score_indicator{
     right: 5%;
     position: absolute;
     font-size: 30px;
     color: white;
 }
-.note_animation{
+.note_clicked_animation{
     animation: hoverblink 1s linear alternate infinite
 }
 @keyframes hoverblink {
     0% {opacity: 1}
     100% {opacity: 0}
+}
+.victory_text{
+    font-family: cursive;
+    text-align: center;
+    font-size: 5em;
+    animation: hoverblink 1s linear alternate infinite
+}
+
+.card_float{
+    animation: float 6s ease-in-out infinite;
+}
+@keyframes float {
+    0% {
+        //box-shadow: 0 5px 15px 0 rgba(0,0,0,0.6);
+        transform: translatey(0px);
+    }
+    50% {
+        //box-shadow: 0 25px 15px 0 rgba(0,0,0,0.2);
+        transform: translatey(-10px);
+    }
+    100% {
+        //box-shadow: 0 5px 15px 0 rgba(0,0,0,0.6);
+        transform: translatey(0px);
+    }
 }
