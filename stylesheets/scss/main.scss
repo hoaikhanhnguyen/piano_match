@@ -74,7 +74,8 @@ img {
     width: auto;
 }
 .music_sheet{
-    margin: 12px 0;
+    height: 33vh;
+    margin: 1% 0 0 0;
     background-image: url(../../images/music_sheet7.png);
     background-size: cover;
     border-radius: 10px;
@@ -82,4 +83,17 @@ img {
 }
 a{
     font-family: "Calibri Light";
+}
+.score_indicator{
+    right: 5%;
+    position: absolute;
+    font-size: 30px;
+    color: white;
+}
+.note_animation{
+    animation: hoverblink 1s linear alternate infinite
+}
+@keyframes hoverblink {
+    0% {opacity: 1}
+    100% {opacity: 0}
 }

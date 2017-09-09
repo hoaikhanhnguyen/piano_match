@@ -5,7 +5,6 @@ for (i = 36; i < 47; i++) {
 }
 audioFiles.preload = "auto";
 
-
 //click handlers
 let whiteKeys = [36, 38, 40, 41, 43, 45, 47 ];
 let blackKeys = [37, 39, 0, 42, 44, 46];

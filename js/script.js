@@ -18,13 +18,13 @@ let first_card_clicked = null;
 let second_card_clicked = null;
 let total_possible_matches = 12;
 let cant_click_card_twice = false;
-
+let last_sound_played = null;
+let allow_replay = false;
 //Game info area variables
 
 let matches =0;
 let attempts = 0;
 let accuracy = 0;
-let games_played = 0;//when page loads,variable should reset.when reset button is clicked, +1
 let score = 0;
 let score_multiplier = 1;
 
@@ -32,26 +32,27 @@ $(document).ready(function() {
     stackShuffle();
     $(".card").click(card_clicked);
     $(".key").click(key_clicked);
-    // $(".reset").click(reset_button);
-    // display_stats();
+    $("#previous_sound").click(play_previous_sound);
+    $("#reset").click(reset_stats);
+    $("#music_off").click(stop_music);
 });
 function card_clicked() {
     console.log(this);
     if(cant_click_card_twice){
-        playSound($(this).attr("sound"));
         console.log("cant CLICK. Please click a key ");
         return
     }
-    $(this).animate({
-        opacity: .5,
-        height: "50%"
-    });
+    $(this).addClass("note_animation");
+    //     .animate({
+    //     opacity: .5,
+    // });
     if (first_card_clicked == null && cant_click_card_twice === false) {
         playSound($(this).attr("sound"));
+        last_sound_played = $(this).attr("sound");
         cant_click_card_twice = true;
+        allow_replay = true;
         return first_card_clicked = $(this);
     }
-        display_stats();
 }
 function key_clicked(){
     console.log(this);
@@ -60,56 +61,69 @@ function key_clicked(){
         attempts += 1;
         if(keyObject[second_card_clicked.attr("id")] === first_card_clicked.attr("sound")){
             console.log("match!");
-            first_card_clicked.fadeOut("fast");
+            playSound("sfx/correct_match.wav");
+            first_card_clicked.fadeOut("slow");
             first_card_clicked = null;
             second_card_clicked = null;
             cant_click_card_twice = false;
             matches++;
             score += 1000*score_multiplier;
+            $(".score_indicator").text(`+${1000*score_multiplier}`).animate({top: '5%', opacity: 1}, 1000,function(){
+                $(this).removeAttr('style').text("")
+            });
             score_multiplier++;
             display_score();
+            display_accuracy();
                     if (matches === total_possible_matches) {
-                        alert("You have won!");
+                        playSound("sfx/victory.wav");
+                        $(".music_sheet").append($("<div>").text("CONGRATULATIONS!"));
                     }
         }else if(keyObject[second_card_clicked.attr("id")] !== first_card_clicked.attr("sound")){
             console.log("no match!");
-            first_card_clicked.animate({
-                opacity: 1,
-                height: "50%"
-            });
+            first_card_clicked.removeClass("note_animation");
             first_card_clicked = null;
             second_card_clicked = null;
             cant_click_card_twice = false;
             score_multiplier = 1;
+            display_score();
+            display_accuracy();
         }
+        allow_replay = false;
+    }
+}
+
+function play_previous_sound(){
+    if(allow_replay) {
+        playSound(last_sound_played);
+        if(score > 100){
+            score = score - 100;
+        }
+        display_score();
     }
 }
 //GAME INFO AREA FUNCTIONS
-function display_score(){
+
+function display_score() {
     $("#score").text(`Score: ${score}`);
+    $("#multiplier").text(`Multiplier: ${score_multiplier}x`);
 }
 
-// function display_stats(){
-//     // $(".games-played .value").text(games_played);  // inserts games_played value into ".games-played.value" element
-//     $(".attempts .value").text(attempts);   //insert attempts value into ".attempts.value" element
-//     accuracy = (Math.floor((matches / attempts) * 100)) + "%";    //formats accuracy to a percentage with %sign
-//     $(".accuracy .value").text(accuracy);   //inserts formatted accuracy into ".accuracy.value" element
-//     return;
-// };
-// function reset_stats(){
-//     accuracy = 0;     //resets accuracy to 0
-//     match_counter = 0;      //resets matches to 0
-//     attempts = 0;      //resets attempts to 0
-//     display_stats();  //calls display_stats function
-//     return;
-// };
-// function reset_button(){
-//     games_played += 1;
-//     reset_stats();
-//     $(".back").fadeIn("fast");
-//     return;
-// };
+function display_accuracy() {
+    accuracy = (Math.floor((matches / attempts) * 100)) + "%";
+    $("#accuracy").text(`Accuracy: ${accuracy}`);   //inserts formatted accuracy into ".accuracy.value" element
+}
 
+function reset_stats(){
+    accuracy = 0;
+    matches = 0;
+    attempts = 0;
+    score = 0;
+    score_multiplier = 0;
+    display_score();
+    $("#accuracy").text(`Accuracy: 0`);
+    $(".card").fadeIn("fast");
+    stackShuffle();
+}
 function stackShuffle () {
     let audioFiles = [];
     for (i = 36; i < 48; i++) {
@@ -118,8 +132,19 @@ function stackShuffle () {
     let audioFilesCopy = audioFiles.slice();
     console.log(audioFilesCopy);
     for (var i = 0; i < audioFiles.length; i++) {
-        var card_selected = Math.floor(Math.random() * audioFilesCopy.length);
+        var card_selected = (Math.random() * audioFilesCopy.length) | 0;
         $(`#${i}`).attr("sound", audioFilesCopy[card_selected]);
         audioFilesCopy.splice(card_selected, 1);
+    }
+}
+function stop_music(){
+    if($("#music_off").hasClass("on")) {
+        $("audio").trigger("pause");
+        $("#music_off").text(`Music On`);
+        $("#music_off").removeClass("on");
+    }else{
+        $("audio").trigger("play");
+        $("#music_off").text(`Music Off`);
+        $("#music_off").addClass("on");
     }
 }

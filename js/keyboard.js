@@ -29,3 +29,4 @@ function Keyboard() {
 let piano = new Keyboard();
 piano.create_white_keys();
 piano.create_black_keys();
+// $("#white7").text('C');
