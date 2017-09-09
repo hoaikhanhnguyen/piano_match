@@ -74,6 +74,9 @@ body {
   background-image: url(../../images/piano-bg.jpg);
   background-size: cover; }
 
+a {
+  font-family: "Calibri Light"; }
+
 img {
   display: block;
   margin: auto;
@@ -133,16 +136,13 @@ img {
   background-size: cover;
   border-radius: 10px; }
 
-a {
-  font-family: "Calibri Light"; }
-
 .score_indicator {
   right: 5%;
   position: absolute;
   font-size: 30px;
   color: white; }
 
-.note_animation {
+.note_clicked_animation {
   animation: hoverblink 1s linear alternate infinite; }
 
 @keyframes hoverblink {
@@ -150,5 +150,21 @@ a {
     opacity: 1; }
   100% {
     opacity: 0; } }
+.victory_text {
+  font-family: cursive;
+  text-align: center;
+  font-size: 5em;
+  animation: hoverblink 1s linear alternate infinite; }
+
+.card_float {
+  animation: float 6s ease-in-out infinite; }
+
+@keyframes float {
+  0% {
+    transform: translatey(0px); }
+  50% {
+    transform: translatey(-10px); }
+  100% {
+    transform: translatey(0px); } }
 
 /*# sourceMappingURL=main.css.map */

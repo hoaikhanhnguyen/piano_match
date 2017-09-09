@@ -1,17 +1,18 @@
 const keyObject = {
-    'white7': 'piano_sounds/036.wav',
-    'black8': 'piano_sounds/037.wav',
-    'white8': 'piano_sounds/038.wav',
-    'black9': 'piano_sounds/039.wav',
-    'white9': 'piano_sounds/040.wav',
-    'white10': 'piano_sounds/041.wav',
-    'black11': 'piano_sounds/042.wav',
-    'white11': 'piano_sounds/043.wav',
-    'black12':'piano_sounds/044.wav',
-    'white12': 'piano_sounds/045.wav',
-    'black13': 'piano_sounds/046.wav',
-    'white13': 'piano_sounds/047.wav'
+    'white7': 'c',
+    'black8': 'c#',
+    'white8': 'd',
+    'black9': 'd#',
+    'white9': 'e',
+    'white10': 'f',
+    'black11': 'f#',
+    'white11': 'g',
+    'black12':'g#',
+    'white12': 'a',
+    'black13': 'a#',
+    'white13': 'b'
 };
+
 //Game area variables
 
 let first_card_clicked = null;
@@ -36,19 +37,23 @@ $(document).ready(function() {
     $("#reset").click(reset_stats);
     $("#music_off").click(stop_music);
 });
+function isSingleNote(element){
+    if($(element).attr("src") === "images/music_note3.svg"){
+        return true;
+    }
+    return false;
+}
 function card_clicked() {
-    console.log(this);
+    console.log(this.notes);
     if(cant_click_card_twice){
         console.log("cant CLICK. Please click a key ");
         return
     }
-    $(this).addClass("note_animation");
-    //     .animate({
-    //     opacity: .5,
-    // });
+    $(this).removeClass("card_float");
+    $(this).addClass("note_clicked_animation");
     if (first_card_clicked == null && cant_click_card_twice === false) {
-        playSound($(this).attr("sound"));
-        last_sound_played = $(this).attr("sound");
+        playNotes(this.notes);
+        last_sound_played = $(this)[0].notes;
         cant_click_card_twice = true;
         allow_replay = true;
         return first_card_clicked = $(this);
@@ -59,7 +64,7 @@ function key_clicked(){
     if(first_card_clicked !== null){
         second_card_clicked = $(this);
         attempts += 1;
-        if(keyObject[second_card_clicked.attr("id")] === first_card_clicked.attr("sound")){
+        if(keyObject[second_card_clicked.attr("id")] === first_card_clicked[0].notes[0]){
             console.log("match!");
             playSound("sfx/correct_match.wav");
             first_card_clicked.fadeOut("slow");
@@ -68,7 +73,7 @@ function key_clicked(){
             cant_click_card_twice = false;
             matches++;
             score += 1000*score_multiplier;
-            $(".score_indicator").text(`+${1000*score_multiplier}`).animate({top: '5%', opacity: 1}, 1000,function(){
+            $(".score_indicator").text(`+${1000*score_multiplier}`).animate({top: '5%', opacity: 0}, 1000,function(){
                 $(this).removeAttr('style').text("")
             });
             score_multiplier++;
@@ -76,11 +81,12 @@ function key_clicked(){
             display_accuracy();
                     if (matches === total_possible_matches) {
                         playSound("sfx/victory.wav");
-                        $(".music_sheet").append($("<div>").text("CONGRATULATIONS!"));
+                        $(".music_sheet").append($("<div>").addClass("victory_text").text("CONGRATULATIONS!!!"));
                     }
-        }else if(keyObject[second_card_clicked.attr("id")] !== first_card_clicked.attr("sound")){
+        }else{
             console.log("no match!");
-            first_card_clicked.removeClass("note_animation");
+            first_card_clicked.removeClass("note_clicked_animation");
+            first_card_clicked.addClass("card_float");
             first_card_clicked = null;
             second_card_clicked = null;
             cant_click_card_twice = false;
@@ -94,7 +100,7 @@ function key_clicked(){
 
 function play_previous_sound(){
     if(allow_replay) {
-        playSound(last_sound_played);
+        playNotes(last_sound_played);
         if(score > 100){
             score = score - 100;
         }
@@ -120,22 +126,36 @@ function reset_stats(){
     score = 0;
     score_multiplier = 0;
     display_score();
+    $(".victory_text").text("");
     $("#accuracy").text(`Accuracy: 0`);
     $(".card").fadeIn("fast");
+    $(".card").removeClass("note_clicked_animation");
     stackShuffle();
+
 }
 function stackShuffle () {
-    let audioFiles = [];
-    for (i = 36; i < 48; i++) {
-        audioFiles.push(`piano_sounds/0${i}.wav`)
+    let audioFiles = ['c','c#','d','d#','e','f','f#','g','g#','a','a#','b'];
+    // for (i = 'a'; i <='g'; i=String.fromCharCode(i.charCodeAt(0)+1)) {
+    //     //audioFiles.push(`piano_sounds/0${i}.wav`)
+    //     audioFiles.push(i);
+    // }
+    //let audioFilesCopy = audioFiles.slice();
+    //console.log(audioFilesCopy);
+    var i = 0;
+    while(audioFiles.length) {
+        var noteElement = $(`#${i}`);
+        var card_selected = (Math.random() * audioFiles.length) | 0;
+        var notes = [];
+        var selectedNote = audioFiles[card_selected];
+        notes.push(selectedNote);
+        if(!isSingleNote(noteElement)){
+            notes.push(selectedNote);
+        }
+        audioFiles.splice(card_selected, 1);
+        noteElement[0].notes = notes;
+        i++;
     }
-    let audioFilesCopy = audioFiles.slice();
-    console.log(audioFilesCopy);
-    for (var i = 0; i < audioFiles.length; i++) {
-        var card_selected = (Math.random() * audioFilesCopy.length) | 0;
-        $(`#${i}`).attr("sound", audioFilesCopy[card_selected]);
-        audioFilesCopy.splice(card_selected, 1);
-    }
+    console.log('done shuffling');
 }
 function stop_music(){
     if($("#music_off").hasClass("on")) {
