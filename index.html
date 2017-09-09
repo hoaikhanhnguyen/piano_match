@@ -22,14 +22,17 @@
 
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
-                            <li class="active">
+                            <li>
                                 <a href="#">Show Notes</a>
                             </li>
-                            <li>
+                            <li class="active">
                                 <a href="#">Hide Notes</a>
                             </li>
-                            <li class="active">
+                            <li>
                                 <a href="#" id="previous_sound">Replay Sound</a>
+                            </li>
+                            <li>
+                                <a href="#" id="reset">Reset Game</a>
                             </li>
                         </ul>
                         <!--<form class="navbar-form navbar-left" role="search">-->
@@ -47,7 +50,7 @@
                                     <li>
                                         <a style="pointer-events: none; cursor: default;" href="#">
                                             <p> - Click on the musical notes and match them with the keys on the piano!</p>
-                                            <p> - Match note consecutively to build your score multiplier!</p>
+                                            <p> - Match notes consecutively to build your score multiplier!</p>
                                             <p> - Replay the sound for a cost of 100 points.</p>
                                         </a>
                                     </li>
@@ -68,7 +71,7 @@
                                     <li class="divider">
                                     </li>
                                     <li>
-                                        <a href="#">Music Off</a>
+                                        <a href="#" class="on" id="music_off">Music Off</a>
                                     </li>
                                 </ul>
                             </li>
@@ -77,6 +80,10 @@
                             </li>
                             <li>
                                 <a style="pointer-events: none; cursor: default;" href="#" id="score">Score: 0</a>
+                                <p class="score_indicator"></p>
+                            </li>
+                            <li class="active">
+                                <a style="pointer-events: none; cursor: default;" href="#" id="multiplier">Multiplier: 1x</a>
                             </li>
                         </ul>
                     </div>
@@ -137,7 +144,7 @@
             </div>
         </div>
     </div>
-
+    <audio src="piano_bg.mp3" autoplay loop></audio>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="js/keyboard.js"></script>

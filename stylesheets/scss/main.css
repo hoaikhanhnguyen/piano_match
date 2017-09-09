@@ -115,7 +115,7 @@ img {
   width: auto;
   position: relative;
   height: 192px;
-  margin: 90px 0 26px 46px;
+  margin: 79px 0 26px 46px;
   opacity: 0.9; }
 
 .black_keyboard {
@@ -127,12 +127,28 @@ img {
   width: auto; }
 
 .music_sheet {
-  margin-top: 1%;
+  height: 33vh;
+  margin: 1% 0 0 0;
   background-image: url(../../images/music_sheet7.png);
   background-size: cover;
   border-radius: 10px; }
 
 a {
   font-family: "Calibri Light"; }
+
+.score_indicator {
+  right: 5%;
+  position: absolute;
+  font-size: 30px;
+  color: white; }
+
+.note_animation {
+  animation: hoverblink 1s linear alternate infinite; }
+
+@keyframes hoverblink {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
 
 /*# sourceMappingURL=main.css.map */
