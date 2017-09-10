@@ -1,11 +1,15 @@
-//preload
+function playSound(src){
+    var player = new Audio();
+    player.src = src;
+    player.play();
+}
+
 let audioFiles = [];
 for (i = 36; i < 47; i++) {
     audioFiles.push(`piano_sounds/0${i}.wav`)
 }
 audioFiles.preload = "auto";
 
-//click handlers
 let whiteKeys = [36, 38, 40, 41, 43, 45, 47 ];
 let blackKeys = [37, 39, 0, 42, 44, 46];
 let isDown = false;
@@ -21,6 +25,7 @@ for(i=0; i<whiteKeys.length;i++) {
         isDown = false;
     }).on('mouseleave', function () {
         $(currentKey).css("opacity", 0.6);
+        isDown = false;
     }).on('mouseover', function(){
         if(isDown){
             playSound(currentSound);
@@ -40,6 +45,7 @@ for(i=0; i<blackKeys.length;i++) {
         isDown = false;
     }).on('mouseleave', function () {
         $(currentKey).removeClass("black_key_select");
+        isDown = false;
     }).on('mouseover', function(){
         if(isDown === true){
             playSound(currentSound);
@@ -47,18 +53,6 @@ for(i=0; i<blackKeys.length;i++) {
         }
     });
 }
-
-
-// keypresses
-
-
-//audio object
-function playSound(src){
-    var player = new Audio();
-    player.src = src;
-    player.play();
-}
-
 function playNotes(noteArray){
     const noteObject = {
         'c': '036.wav',

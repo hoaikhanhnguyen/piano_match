@@ -32,10 +32,11 @@ let score_multiplier = 1;
 $(document).ready(function() {
     stackShuffle();
     $(".card").click(card_clicked);
-    $(".key").click(key_clicked);
+    $(".active_key").on("mousedown", key_clicked);
     $("#previous_sound").click(play_previous_sound);
     $("#reset").click(reset_stats);
     $("#music_off").click(stop_music);
+    $("#key_press").click(key_press_assist);
 });
 function isSingleNote(element){
     if($(element).attr("src") === "images/music_note3.svg"){
@@ -65,7 +66,6 @@ function key_clicked(){
         second_card_clicked = $(this);
         attempts += 1;
         if(keyObject[second_card_clicked.attr("id")] === first_card_clicked[0].notes[0]){
-            console.log("match!");
             playSound("sfx/correct_match.wav");
             first_card_clicked.fadeOut("slow");
             first_card_clicked = null;
@@ -77,14 +77,13 @@ function key_clicked(){
                 $(this).removeAttr('style').text("")
             });
             score_multiplier++;
-            display_score();
+            setTimeout(display_score,800);
             display_accuracy();
                     if (matches === total_possible_matches) {
                         playSound("sfx/victory.wav");
                         $(".music_sheet").append($("<div>").addClass("victory_text").text("CONGRATULATIONS!!!"));
                     }
         }else{
-            console.log("no match!");
             first_card_clicked.removeClass("note_clicked_animation");
             first_card_clicked.addClass("card_float");
             first_card_clicked = null;
@@ -130,17 +129,12 @@ function reset_stats(){
     $("#accuracy").text(`Accuracy: 0`);
     $(".card").fadeIn("fast");
     $(".card").removeClass("note_clicked_animation");
+    $(".card").addClass("card_float");
     stackShuffle();
 
 }
 function stackShuffle () {
     let audioFiles = ['c','c#','d','d#','e','f','f#','g','g#','a','a#','b'];
-    // for (i = 'a'; i <='g'; i=String.fromCharCode(i.charCodeAt(0)+1)) {
-    //     //audioFiles.push(`piano_sounds/0${i}.wav`)
-    //     audioFiles.push(i);
-    // }
-    //let audioFilesCopy = audioFiles.slice();
-    //console.log(audioFilesCopy);
     var i = 0;
     while(audioFiles.length) {
         var noteElement = $(`#${i}`);
@@ -155,16 +149,26 @@ function stackShuffle () {
         noteElement[0].notes = notes;
         i++;
     }
-    console.log('done shuffling');
 }
 function stop_music(){
     if($("#music_off").hasClass("on")) {
         $("audio").trigger("pause");
-        $("#music_off").text(`Music On`);
+        $("#music_off").text(`Music Off`);
         $("#music_off").removeClass("on");
     }else{
         $("audio").trigger("play");
-        $("#music_off").text(`Music Off`);
+        $("#music_off").text(`Music On`);
         $("#music_off").addClass("on");
+    }
+}
+function key_press_assist(){
+    if($("#key_press").hasClass("off")) {
+        allowed = true;
+        $("#key_press").text(`Key press Assist On`);
+        $("#key_press").removeClass("off");
+    }else{
+        allowed = false;
+        $("#key_press").text(`Key press Assist Off`);
+        $("#key_press").addClass("off");
     }
 }
