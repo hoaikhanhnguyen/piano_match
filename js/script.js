@@ -81,7 +81,9 @@ function key_clicked(){
             display_accuracy();
                     if (matches === total_possible_matches) {
                         playSound("sfx/victory.wav");
-                        $(".music_sheet").append($("<div>").addClass("victory_text").text("CONGRATULATIONS!!!"));
+                        $(".music_sheet").append($("<div>").addClass("victory_text"));
+                        setTimeout(function(){
+                        $(".victory_text").text("CONGRATULATIONS!!!")}, 1000);
                     }
         }else{
             first_card_clicked.removeClass("note_clicked_animation");
