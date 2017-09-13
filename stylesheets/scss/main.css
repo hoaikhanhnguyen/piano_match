@@ -1,3 +1,15 @@
+@keyframes float {
+  0% {
+    transform: translatey(0px); }
+  50% {
+    transform: translatey(-10px); }
+  100% {
+    transform: translatey(0px); } }
+@keyframes hoverblink {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
 #white0 {
   opacity: .3; }
 
@@ -72,7 +84,8 @@
 
 body {
   background-image: url(../../images/piano-bg.jpg);
-  background-size: cover; }
+  background-size: cover;
+  background-repeat: no-repeat; }
 
 a {
   font-family: "Calibri Light"; }
@@ -89,7 +102,7 @@ img {
   background-color: #0a0a0a;
   display: inline-block;
   margin-right: 20px;
-  height: 120px;
+  height: 20vh;
   width: 24px;
   border: 1px solid white;
   border-radius: 2px;
@@ -107,7 +120,7 @@ img {
 
 .white_key {
   display: inline-block;
-  height: 200px;
+  height: 35vh;
   width: 45px;
   border: .5px solid black;
   background-color: #ffffff;
@@ -145,11 +158,6 @@ img {
 .note_clicked_animation {
   animation: hoverblink 1s linear alternate infinite; }
 
-@keyframes hoverblink {
-  0% {
-    opacity: 1; }
-  100% {
-    opacity: 0; } }
 .victory_text {
   font-family: cursive;
   text-align: center;
@@ -158,13 +166,5 @@ img {
 
 .card_float {
   animation: float 6s ease-in-out infinite; }
-
-@keyframes float {
-  0% {
-    transform: translatey(0px); }
-  50% {
-    transform: translatey(-10px); }
-  100% {
-    transform: translatey(0px); } }
 
 /*# sourceMappingURL=main.css.map */

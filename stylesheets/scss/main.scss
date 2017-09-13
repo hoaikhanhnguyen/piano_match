@@ -1,6 +1,22 @@
 @import "variables";
 @import "mixins";
 
+@keyframes float {
+    0% {
+        transform: translatey(0px);
+    }
+    50% {
+        transform: translatey(-10px);
+    }
+    100% {
+        transform: translatey(0px);
+    }
+}
+@keyframes hoverblink {
+    0% {opacity: 1}
+    100% {opacity: 0}
+}
+
 @for $i from 0 through 6{
     #white#{$i}{
         opacity: .3;
@@ -19,6 +35,7 @@
 body{
     background-image: $backgroundImg;
     background-size: cover;
+    background-repeat: no-repeat;
 }
 .container-fluid {
     //background-color: black;
@@ -27,7 +44,7 @@ body{
 }
 
 a{
-    font-family: "Calibri Light";
+    font-family: $link_font;
 }
 img {
     display: block;
@@ -50,7 +67,7 @@ img {
 }
 .white_key{
     display: inline-block;
-    height: 200px;
+    height: 35vh;
     width: 45px;
     border: .5px solid black;
     background-color: $whiteKey;
@@ -88,10 +105,6 @@ img {
 .note_clicked_animation{
     animation: hoverblink 1s linear alternate infinite
 }
-@keyframes hoverblink {
-    0% {opacity: 1}
-    100% {opacity: 0}
-}
 .victory_text{
     font-family: cursive;
     text-align: center;
@@ -101,18 +114,4 @@ img {
 
 .card_float{
     animation: float 6s ease-in-out infinite;
-}
-@keyframes float {
-    0% {
-        //box-shadow: 0 5px 15px 0 rgba(0,0,0,0.6);
-        transform: translatey(0px);
-    }
-    50% {
-        //box-shadow: 0 25px 15px 0 rgba(0,0,0,0.2);
-        transform: translatey(-10px);
-    }
-    100% {
-        //box-shadow: 0 5px 15px 0 rgba(0,0,0,0.6);
-        transform: translatey(0px);
-    }
 }
