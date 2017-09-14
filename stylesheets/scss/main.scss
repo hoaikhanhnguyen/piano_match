@@ -3,12 +3,15 @@
 
 @keyframes float {
     0% {
+        //box-shadow: 0 5px 15px 0 rgba(0,0,0,0.6);
         transform: translatey(0px);
     }
     50% {
-        transform: translatey(-10px);
+        //box-shadow: 0 25px 15px 0 rgba(0,0,0,0.2);
+        transform: translatey(-5px);
     }
     100% {
+        //box-shadow: 0 5px 15px 0 rgba(0,0,0,0.6);
         transform: translatey(0px);
     }
 }
@@ -90,11 +93,12 @@ img {
     width: auto;
 }
 .music_sheet{
-    height: 33vh;
-    margin: 1% 0 0 0;
-    background-image: url(../../images/music_sheet7.png);
-    background-size: cover;
-    border-radius: 10px;
+@include music_sheet;
+}
+@media (max-width: 768px) {
+    .music_sheet2 {
+            @include music_sheet;
+    }
 }
 .score_indicator{
     right: 5%;
@@ -106,10 +110,7 @@ img {
     animation: hoverblink 1s linear alternate infinite
 }
 .victory_text{
-    font-family: cursive;
-    text-align: center;
-    font-size: 5em;
-    animation: hoverblink 1s linear alternate infinite
+    @include victory_text;
 }
 
 .card_float{
