@@ -2,7 +2,7 @@
   0% {
     transform: translatey(0px); }
   50% {
-    transform: translatey(-10px); }
+    transform: translatey(-5px); }
   100% {
     transform: translatey(0px); } }
 @keyframes hoverblink {
@@ -143,12 +143,21 @@ img {
   width: auto; }
 
 .music_sheet {
-  height: 33vh;
+  height: auto;
   margin: 1% 0 0 0;
   background-image: url(../../images/music_sheet7.png);
   background-size: cover;
+  background-position-y: 38%;
   border-radius: 10px; }
 
+@media (max-width: 768px) {
+  .music_sheet2 {
+    height: auto;
+    margin: 1% 0 0 0;
+    background-image: url(../../images/music_sheet7.png);
+    background-size: cover;
+    background-position-y: 38%;
+    border-radius: 10px; } }
 .score_indicator {
   right: 5%;
   position: absolute;

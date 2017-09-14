@@ -15,3 +15,18 @@
     border: none;
     background-color: transparent;
 }
+@mixin victory_text{
+    font-family: cursive;
+    text-align: center;
+    font-size: 5em;
+    animation: hoverblink 1s linear alternate infinite
+}
+@mixin music_sheet{
+    height: auto;
+    margin: 1% 0 0 0;
+    //background-color: white;
+    background-image: url(../../images/music_sheet7.png);
+    background-size: cover;
+    background-position-y: 38%;
+    border-radius: 10px;
+}
