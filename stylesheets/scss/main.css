@@ -1,91 +1,229 @@
 @keyframes float {
   0% {
+    box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.6);
     transform: translatey(0px); }
   50% {
+    box-shadow: 0 25px 15px 0 rgba(0, 0, 0, 0.2);
     transform: translatey(-5px); }
   100% {
+    box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.6);
     transform: translatey(0px); } }
 @keyframes hoverblink {
   0% {
     opacity: 1; }
   100% {
     opacity: 0; } }
-#white0 {
-  opacity: .3; }
+@media all and (min-width: 1200px) {
+  /* Apply first set of CSS rules */
+  #white0 {
+    opacity: .3; }
 
-#white1 {
-  opacity: .3; }
+  #white1 {
+    opacity: .3; }
 
-#white2 {
-  opacity: .3; }
+  #white2 {
+    opacity: .3; }
 
-#white3 {
-  opacity: .3; }
+  #white3 {
+    opacity: .3; }
 
-#white4 {
-  opacity: .3; }
+  #white4 {
+    opacity: .3; }
 
-#white5 {
-  opacity: .3; }
+  #white5 {
+    opacity: .3; }
 
-#white6 {
-  opacity: .3; }
+  #white6 {
+    opacity: .3; }
 
-#white7 {
-  opacity: .6; }
+  #white7 {
+    opacity: .6; }
 
-#white8 {
-  opacity: .6; }
+  #white8 {
+    opacity: .6; }
 
-#white9 {
-  opacity: .6; }
+  #white9 {
+    opacity: .6; }
 
-#white10 {
-  opacity: .6; }
+  #white10 {
+    opacity: .6; }
 
-#white11 {
-  opacity: .6; }
+  #white11 {
+    opacity: .6; }
 
-#white12 {
-  opacity: .6; }
+  #white12 {
+    opacity: .6; }
 
-#white13 {
-  opacity: .6; }
+  #white13 {
+    opacity: .6; }
 
-#white14 {
-  opacity: .3; }
+  #white14 {
+    opacity: .3; }
 
-#white15 {
-  opacity: .3; }
+  #white15 {
+    opacity: .3; }
 
-#white16 {
-  opacity: .3; }
+  #white16 {
+    opacity: .3; }
 
-#white17 {
-  opacity: .3; }
+  #white17 {
+    opacity: .3; }
 
-#white18 {
-  opacity: .3; }
+  #white18 {
+    opacity: .3; }
 
-#white19 {
-  opacity: .3; }
+  #white19 {
+    opacity: .3; }
 
-#white20 {
-  opacity: .3; }
+  #white20 {
+    opacity: .3; }
 
-#white21 {
-  opacity: .3; }
+  #white21 {
+    opacity: .3; }
 
-#white22 {
-  opacity: .3; }
+  #white22 {
+    opacity: .3; }
 
-#white23 {
-  opacity: .3; }
+  #white23 {
+    opacity: .3; } }
+@media not all and (min-width: 1200px) {
+  /* Apply second set of CSS rules */
+  .keyboard {
+    margin: 0; }
 
+  #white0 {
+    display: none; }
+
+  #white1 {
+    display: none; }
+
+  #white2 {
+    display: none; }
+
+  #white3 {
+    display: none; }
+
+  #white4 {
+    display: none; }
+
+  #white5 {
+    display: none; }
+
+  #white6 {
+    display: none; }
+
+  #white7 {
+    opacity: .6; }
+
+  #white8 {
+    opacity: .6; }
+
+  #white9 {
+    opacity: .6; }
+
+  #white10 {
+    opacity: .6; }
+
+  #white11 {
+    opacity: .6; }
+
+  #white12 {
+    opacity: .6; }
+
+  #white13 {
+    opacity: .6; }
+
+  #white14 {
+    display: none; }
+
+  #white15 {
+    display: none; }
+
+  #white16 {
+    display: none; }
+
+  #white17 {
+    display: none; }
+
+  #white18 {
+    display: none; }
+
+  #white19 {
+    display: none; }
+
+  #white20 {
+    display: none; }
+
+  #white21 {
+    display: none; }
+
+  #white22 {
+    display: none; }
+
+  #white23 {
+    display: none; } }
+@media not all and (min-width: 1200px) {
+  /* Apply second set of CSS rules */
+  .music_sheet {
+    background-image: none !important;
+    background-color: white;
+    border-radius: 0; }
+
+  .black_keyboard {
+    left: -45px !important; }
+
+  #black1 {
+    display: none; }
+
+  #black2 {
+    display: none; }
+
+  #black3 {
+    display: none; }
+
+  #black4 {
+    display: none; }
+
+  #black5 {
+    display: none; }
+
+  #black6 {
+    display: none; }
+
+  #black7 {
+    display: none; }
+
+  #black14 {
+    display: none; }
+
+  #black15 {
+    display: none; }
+
+  #black16 {
+    display: none; }
+
+  #black17 {
+    display: none; }
+
+  #black18 {
+    display: none; }
+
+  #black19 {
+    display: none; }
+
+  #black20 {
+    display: none; }
+
+  #black21 {
+    display: none; }
+
+  #black22 {
+    display: none; }
+
+  #black23 {
+    display: none; } }
 body {
-  background-image: url(../../images/piano-bg.jpg);
-  background-size: cover;
-  background-repeat: no-repeat; }
+  background-image: url(../../images/piano-bg.jpg); }
 
 a {
   font-family: "Calibri Light"; }
@@ -95,14 +233,11 @@ img {
   margin: auto;
   width: 50%; }
 
-.col-md-4 {
-  text-align: center; }
-
 .black_key {
   background-color: #0a0a0a;
   display: inline-block;
   margin-right: 20px;
-  height: 20vh;
+  height: 110px;
   width: 24px;
   border: 1px solid white;
   border-radius: 2px;
@@ -120,7 +255,7 @@ img {
 
 .white_key {
   display: inline-block;
-  height: 35vh;
+  height: 196px;
   width: 45px;
   border: .5px solid black;
   background-color: #ffffff;
@@ -128,7 +263,7 @@ img {
   border-bottom-right-radius: 5px; }
 
 .keyboard {
-  width: auto;
+  width: 100%;
   position: relative;
   height: 192px;
   margin: 79px 0 26px 46px;
@@ -140,7 +275,8 @@ img {
   left: 50px; }
 
 .white_keyboard {
-  width: auto; }
+  position: absolute;
+  width: 100%; }
 
 .music_sheet {
   height: auto;
@@ -150,14 +286,6 @@ img {
   background-position-y: 38%;
   border-radius: 10px; }
 
-@media (max-width: 768px) {
-  .music_sheet2 {
-    height: auto;
-    margin: 1% 0 0 0;
-    background-image: url(../../images/music_sheet7.png);
-    background-size: cover;
-    background-position-y: 38%;
-    border-radius: 10px; } }
 .score_indicator {
   right: 5%;
   position: absolute;
