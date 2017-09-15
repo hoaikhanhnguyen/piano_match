@@ -46,6 +46,8 @@
                                             <p> - Click on the musical notes and match them with the keys on the piano!</p>
                                             <p> - Match notes consecutively to build your score multiplier!</p>
                                             <p> - Replay the sound for a cost of 100 points.</p>
+                                            <p> - Attempts only count when you click. If the game is too hard, turn on keypress assist
+                                                    to play the piano on the keyboard freely ("E", "R", "T" ...)</p>
                                         </a>
                                     </li>
                                 </ul>
@@ -56,7 +58,7 @@
                                     <!--<li>-->
                                         <!--<a href="#">Game Mode</a>-->
                                     <!--</li>-->
-                                    <li class="hidden-xs">
+                                    <li>
                                         <a href="#" class="off" id="key_press">Key Press Assist Off</a>
                                     </li>
                                     <li class="divider">
@@ -112,12 +114,10 @@
                     </div>
                 </div>
         </div>
-        <div class="row">
             <div class="col-md-12 col-xs-12 keyboard">
                 <div class="col-md-12 white_keyboard"></div>
                 <div class="col-md-12 black_keyboard"></div>
             </div>
-        </div>
     </div>
     <audio src="piano_bg.mp3" autoplay loop></audio>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

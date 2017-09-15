@@ -14,7 +14,6 @@
   100% {
     opacity: 0; } }
 @media all and (min-width: 1200px) {
-  /* Apply first set of CSS rules */
   #white0 {
     opacity: .3; }
 
@@ -87,9 +86,9 @@
   #white23 {
     opacity: .3; } }
 @media not all and (min-width: 1200px) {
-  /* Apply second set of CSS rules */
   .keyboard {
-    margin: 0; }
+    margin: 0;
+    left: 20%; }
 
   #white0 {
     display: none; }
@@ -163,7 +162,6 @@
   #white23 {
     display: none; } }
 @media not all and (min-width: 1200px) {
-  /* Apply second set of CSS rules */
   .music_sheet {
     background-image: none !important;
     background-color: white;
@@ -222,6 +220,9 @@
 
   #black23 {
     display: none; } }
+@media (max-width: 724px) {
+  .keyboard {
+    left: 0; } }
 body {
   background-image: url(../../images/piano-bg.jpg); }
 
@@ -263,10 +264,10 @@ img {
   border-bottom-right-radius: 5px; }
 
 .keyboard {
-  width: 100%;
+  width: 99%;
   position: relative;
   height: 192px;
-  margin: 79px 0 26px 46px;
+  margin: 79px 0 26px 0;
   opacity: 0.9; }
 
 .black_keyboard {
@@ -276,7 +277,7 @@ img {
 
 .white_keyboard {
   position: absolute;
-  width: 100%; }
+  width: 95%; }
 
 .music_sheet {
   height: auto;
