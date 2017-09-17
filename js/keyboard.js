@@ -1,7 +1,4 @@
 function Keyboard() {
-
-
-//White Keys
     this.create_white_keys = function(){
         for (i = 0; i < 24; i++) {
             $(".white_keyboard").append($("<div>").addClass("white_key").attr("id",`white${i}`).addClass("key"));
@@ -10,8 +7,6 @@ function Keyboard() {
             }
         }
     };
-
-
     const key = [3, 4];
     let current = 0;
     let skip_key = 1;

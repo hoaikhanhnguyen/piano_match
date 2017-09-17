@@ -86,8 +86,6 @@ function playNotes(noteArray){
             setTimeout(triggerNote, duration);
         }
     }
-
     triggerNote();
-
 }
 // const ode_to_joy = playNotes(['e300','e300','f300','g300','g300','f300','e300','d300','c300','c300','d300','e300','e500','d130','d130']);
