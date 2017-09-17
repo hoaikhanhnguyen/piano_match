@@ -7,7 +7,6 @@
 @keyframes hoverblink {
     @include hoverblink;
 }
-
 @media all and (min-width: 1200px) {
     @for $i from 0 through 6 {
         #white#{$i} {
