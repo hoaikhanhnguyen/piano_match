@@ -13,15 +13,12 @@ const keyObject = {
     'white13': 'b'
 };
 
-//Game area variables
-
 let first_card_clicked = null;
 let second_card_clicked = null;
 let total_possible_matches = 12;
 let cant_click_card_twice = false;
 let last_sound_played = null;
 let allow_replay = false;
-//Game info area variables
 
 let matches =0;
 let attempts = 0;
@@ -47,7 +44,6 @@ function isSingleNote(element){
 function card_clicked() {
     console.log(this.notes);
     if(cant_click_card_twice){
-        console.log("cant CLICK. Please click a key ");
         return
     }
     $(this).removeClass("card_float");
@@ -73,17 +69,12 @@ function key_clicked(){
             cant_click_card_twice = false;
             matches++;
             score += 1000*score_multiplier;
-            $(".score_indicator").text(`+${1000*score_multiplier}`).animate({top: '5%', opacity: 0}, 1000,function(){
-                $(this).removeAttr('style').text("")
-            });
+            score_increase_animation();
             score_multiplier++;
             setTimeout(display_score,800);
             display_accuracy();
                     if (matches === total_possible_matches) {
-                        playSound("sfx/victory.wav");
-                        $(".music_sheet").append($("<div>").addClass("victory_text"));
-                        setTimeout(function(){
-                        $(".victory_text").text("CONGRATULATIONS!!!")}, 1000);
+                        game_win();
                     }
         }else{
             first_card_clicked.removeClass("note_clicked_animation");
@@ -108,16 +99,21 @@ function play_previous_sound(){
         display_score();
     }
 }
-//GAME INFO AREA FUNCTIONS
 
 function display_score() {
     $("#score").text(`Score: ${score}`);
     $("#multiplier").text(`Multiplier: ${score_multiplier}x`);
 }
 
+function score_increase_animation(){
+    $(".score_indicator").text(`+${1000*score_multiplier}`).animate({top: '5%', opacity: 0}, 1000,function(){
+        $(this).removeAttr('style').text("")
+    });
+}
+
 function display_accuracy() {
     accuracy = (Math.floor((matches / attempts) * 100)) + "%";
-    $("#accuracy").text(`Accuracy: ${accuracy}`);   //inserts formatted accuracy into ".accuracy.value" element
+    $("#accuracy").text(`Accuracy: ${accuracy}`);
 }
 
 function reset_stats(){
@@ -133,6 +129,11 @@ function reset_stats(){
     $(".card").removeClass("note_clicked_animation");
     $(".card").addClass("card_float");
     stackShuffle();
+    first_card_clicked = null;
+    second_card_clicked = null;
+    cant_click_card_twice = true;
+    last_sound_played = null;
+    allow_replay = false;
 
 }
 function stackShuffle () {
@@ -173,4 +174,11 @@ function key_press_assist(){
         $("#key_press").text(`Key press Assist Off`);
         $("#key_press").addClass("off");
     }
+}
+function game_win() {
+    playSound("sfx/victory.wav");
+    $(".music_sheet").append($("<div>").addClass("victory_text"));
+    setTimeout(function () {
+        $(".victory_text").text("CONGRATULATIONS!!!")
+    }, 1000);
 }
