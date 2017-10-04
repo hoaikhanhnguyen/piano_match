@@ -6,7 +6,7 @@ function playSound(src){
 
 let audioFiles = [];
 for (i = 36; i < 47; i++) {
-    audioFiles.push(`piano_sounds/0${i}.wav`)
+    audioFiles.push(`piano_sounds/0${i}.mp3`)
 }
 audioFiles.preload = "auto";
 
@@ -15,7 +15,7 @@ let blackKeys = [37, 39, 0, 42, 44, 46];
 let isDown = false;
 for(i=0; i<whiteKeys.length;i++) {
     let currentKey = $(`#white${i+7}`)[0];
-    let currentSound = `piano_sounds/0${whiteKeys[i]}.wav`;
+    let currentSound = `piano_sounds/0${whiteKeys[i]}.mp3`;
     $(currentKey).on('mousedown', function () {
         playSound(currentSound);
         $(currentKey).css("opacity", 1);
@@ -35,7 +35,7 @@ for(i=0; i<whiteKeys.length;i++) {
 }
 for(i=0; i<blackKeys.length;i++) {
     let currentKey = $(`#black${i+8}`)[0];
-    let currentSound = `piano_sounds/0${blackKeys[i]}.wav`;
+    let currentSound = `piano_sounds/0${blackKeys[i]}.mp3`;
     $(currentKey).on('mousedown', function () {
         playSound(currentSound);
         $(currentKey).addClass("black_key_select");
@@ -55,18 +55,18 @@ for(i=0; i<blackKeys.length;i++) {
 }
 function playNotes(noteArray){
     const noteObject = {
-        'c': '036.wav',
-        'c#': '037.wav',
-        'd': '038.wav',
-        'd#': '039.wav',
-        'e': '040.wav',
-        'f': '041.wav',
-        'f#': '042.wav',
-        'g': '043.wav',
-        'g#':'044.wav',
-        'a': '045.wav',
-        'a#': '046.wav',
-        'b': '047.wav'
+        'c': '036.mp3',
+        'c#': '037.mp3',
+        'd': '038.mp3',
+        'd#': '039.mp3',
+        'e': '040.mp3',
+        'f': '041.mp3',
+        'f#': '042.mp3',
+        'g': '043.mp3',
+        'g#':'044.mp3',
+        'a': '045.mp3',
+        'a#': '046.mp3',
+        'b': '047.mp3'
     };
     const timePerNote = 250;
     var notePosition = 0;

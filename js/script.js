@@ -42,7 +42,6 @@ function isSingleNote(element){
     return false;
 }
 function card_clicked() {
-    console.log(this.notes);
     if(cant_click_card_twice){
         return
     }
@@ -57,12 +56,11 @@ function card_clicked() {
     }
 }
 function key_clicked(){
-    console.log(this);
     if(first_card_clicked !== null){
         second_card_clicked = $(this);
         attempts += 1;
         if(keyObject[second_card_clicked.attr("id")] === first_card_clicked[0].notes[0]){
-            playSound("sfx/correct_match.wav");
+            playSound("sfx/correct_match.mp3");
             first_card_clicked.fadeOut("slow");
             first_card_clicked = null;
             second_card_clicked = null;
@@ -176,7 +174,7 @@ function key_press_assist(){
     }
 }
 function game_win() {
-    playSound("sfx/victory.wav");
+    playSound("sfx/victory.mp3");
     $(".music_sheet").append($("<div>").addClass("victory_text"));
     setTimeout(function () {
         $(".victory_text").text("CONGRATULATIONS!!!")
