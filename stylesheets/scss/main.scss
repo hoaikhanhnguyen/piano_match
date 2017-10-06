@@ -27,7 +27,14 @@
 @media not all and (min-width: 1200px) {
     .keyboard{
         margin: 0;
-        left: 20%;
+    }
+    .music_sheet{
+        background-image: none!important;
+        background-color: white;
+        border-radius: 0;
+    }
+    .skip_key10{
+        width: 11%!important;
     }
     @for $i from 0 through 6 {
         #white#{$i} {
@@ -38,6 +45,7 @@
     @for $i from 7 through 13 {
         #white#{$i} {
             opacity: .6;
+            width: 13.29%
         }
     }
     @for $i from 14 through 23 {
@@ -45,19 +53,14 @@
             display: none;
         }
     }
-}
-@media not all and (min-width: 1200px) {
-    .music_sheet{
-        background-image: none!important;
-        background-color: white;
-        border-radius: 0;
-    }
-    .black_keyboard{
-        left: -45px!important;
-    }
     @for $i from 1 through 7 {
         #black#{$i} {
             display: none;
+        }
+    }
+    @for $i from 7 through 13 {
+        #black#{$i} {
+            width: 11.29%
         }
     }
     @for $i from 14 through 23 {
@@ -102,7 +105,7 @@ img {
 .white_key{
     display: inline-block;
     height: 196px;
-    width: 45px;
+    width: 4.167%;
     border: .5px solid black;
     background-color: $whiteKey;
     border-bottom-left-radius: 5px;
@@ -116,9 +119,9 @@ img {
     opacity: $keyboard_opacity;
 }
 .black_keyboard{
-    width: auto;
+    width: 100%;
     position: absolute;
-    left: 50px;
+    left: 4.2%;
 }
 .white_keyboard{
     position: absolute;

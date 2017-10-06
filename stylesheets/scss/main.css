@@ -87,8 +87,15 @@
     opacity: .3; } }
 @media not all and (min-width: 1200px) {
   .keyboard {
-    margin: 0;
-    left: 20%; }
+    margin: 0; }
+
+  .music_sheet {
+    background-image: none !important;
+    background-color: white;
+    border-radius: 0; }
+
+  .skip_key10 {
+    width: 11% !important; }
 
   #white0 {
     display: none; }
@@ -112,25 +119,32 @@
     display: none; }
 
   #white7 {
-    opacity: .6; }
+    opacity: .6;
+    width: 13.29%; }
 
   #white8 {
-    opacity: .6; }
+    opacity: .6;
+    width: 13.29%; }
 
   #white9 {
-    opacity: .6; }
+    opacity: .6;
+    width: 13.29%; }
 
   #white10 {
-    opacity: .6; }
+    opacity: .6;
+    width: 13.29%; }
 
   #white11 {
-    opacity: .6; }
+    opacity: .6;
+    width: 13.29%; }
 
   #white12 {
-    opacity: .6; }
+    opacity: .6;
+    width: 13.29%; }
 
   #white13 {
-    opacity: .6; }
+    opacity: .6;
+    width: 13.29%; }
 
   #white14 {
     display: none; }
@@ -160,15 +174,7 @@
     display: none; }
 
   #white23 {
-    display: none; } }
-@media not all and (min-width: 1200px) {
-  .music_sheet {
-    background-image: none !important;
-    background-color: white;
-    border-radius: 0; }
-
-  .black_keyboard {
-    left: -45px !important; }
+    display: none; }
 
   #black1 {
     display: none; }
@@ -190,6 +196,27 @@
 
   #black7 {
     display: none; }
+
+  #black7 {
+    width: 11.29%; }
+
+  #black8 {
+    width: 11.29%; }
+
+  #black9 {
+    width: 11.29%; }
+
+  #black10 {
+    width: 11.29%; }
+
+  #black11 {
+    width: 11.29%; }
+
+  #black12 {
+    width: 11.29%; }
+
+  #black13 {
+    width: 11.29%; }
 
   #black14 {
     display: none; }
@@ -243,9 +270,9 @@ img {
 .black_key {
   background-color: #0a0a0a;
   display: inline-block;
-  margin-right: 20px;
+  margin-right: 1%;
   height: 110px;
-  width: 24px;
+  width: 3.167%;
   border: 1px solid white;
   border-radius: 2px;
   border-bottom: none; }
@@ -255,15 +282,15 @@ img {
 
 .skip_key {
   display: inline-block;
-  margin-right: 20px;
-  width: 27px;
+  margin-right: 4%;
+  width: 0;
   border: none;
   background-color: transparent; }
 
 .white_key {
   display: inline-block;
   height: 196px;
-  width: 45px;
+  width: 4.167%;
   border: .5px solid black;
   background-color: #ffffff;
   border-bottom-left-radius: 5px;
@@ -277,9 +304,9 @@ img {
   opacity: 0.9; }
 
 .black_keyboard {
-  width: auto;
+  width: 100%;
   position: absolute;
-  left: 50px; }
+  left: 4.2%; }
 
 .white_keyboard {
   position: absolute;
