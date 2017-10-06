@@ -13,7 +13,7 @@ function Keyboard() {
     this.create_black_keys = function() {
         for (i = 1; i < 24; i++) {
             if (skip_key === key[current]) {
-                $(".black_keyboard").append($("<div>").addClass("skip_key"));
+                $(".black_keyboard").append($("<div>").addClass("skip_key").addClass(`skip_key${i}`));
                 current = 1 - current;
                 skip_key = 1;
             } else {

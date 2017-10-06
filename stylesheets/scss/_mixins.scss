@@ -19,7 +19,11 @@
     font-family: cursive;
     text-align: center;
     font-size: 5em;
-    animation: hoverblink 1s linear alternate infinite
+    animation: hoverblink 1s linear alternate infinite;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%)
 }
 @mixin music_sheet{
     height: auto;
@@ -28,6 +32,7 @@
     background-size: cover;
     background-position-y: 38%;
     border-radius: 10px;
+    position: relative;
 }
 
 //Keyframes
