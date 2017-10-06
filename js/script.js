@@ -61,7 +61,7 @@ function key_clicked(){
         attempts += 1;
         if(keyObject[second_card_clicked.attr("id")] === first_card_clicked[0].notes[0]){
             playSound("sfx/correct_match.mp3");
-            first_card_clicked.fadeOut("slow");
+            first_card_clicked.css("visibility", "hidden");
             first_card_clicked = null;
             second_card_clicked = null;
             cant_click_card_twice = false;
@@ -123,13 +123,13 @@ function reset_stats(){
     display_score();
     $(".victory_text").text("");
     $("#accuracy").text(`Accuracy: 0`);
-    $(".card").fadeIn("fast");
+    $(".card").css("visibility", "visible");
     $(".card").removeClass("note_clicked_animation");
     $(".card").addClass("card_float");
     stackShuffle();
     first_card_clicked = null;
     second_card_clicked = null;
-    cant_click_card_twice = true;
+    cant_click_card_twice = false;
     last_sound_played = null;
     allow_replay = false;
 

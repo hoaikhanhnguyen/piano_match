@@ -72,9 +72,13 @@
     }
 }
 body{
+    background-color: black;
+    background-size: cover;
     background-image: $backgroundImg;
-    //background-size: cover;
-    //background-repeat: no-repeat;
+    background-repeat: no-repeat;
+    background-position-y: bottom;
+    background-position-x: center;
+    min-height: 100vh;
 }
 a{
     font-family: $link_font;
@@ -105,7 +109,7 @@ img {
     border-bottom-right-radius: 5px;
 }
 .keyboard{
-    width: 99%;
+    width: 100%;
     position: relative;
     height: $keyboard_height;
     margin: $keyboard_margin;
@@ -118,7 +122,7 @@ img {
 }
 .white_keyboard{
     position: absolute;
-    width: 95%;
+    width: 100%;
 }
 .music_sheet{
 @include music_sheet;

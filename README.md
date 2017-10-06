@@ -1,4 +1,4 @@
-# Piano Match
+# Piano Match Memory and Audio Game
 
 # Match the music notes with the correct piano key
 
