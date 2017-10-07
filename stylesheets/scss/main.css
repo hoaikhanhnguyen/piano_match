@@ -86,8 +86,12 @@
   #white23 {
     opacity: .3; } }
 @media not all and (min-width: 1200px) {
-  .keyboard {
-    margin: 0; }
+  .img {
+    margin: 0 !important; }
+
+  .black_keyboard {
+    padding-left: 7.142%;
+    padding-right: 7.142%; }
 
   .skip_key10 {
     width: 11% !important; }
@@ -265,9 +269,10 @@ img {
 .black_key {
   background-color: #0a0a0a;
   display: inline-block;
-  margin-right: 1%;
+  margin-right: 0.5%;
+  margin-left: 0.5%;
   height: 110px;
-  width: 3.167%;
+  width: 3.3478%;
   border: 1px solid white;
   border-radius: 2px;
   border-bottom: none; }
@@ -277,8 +282,8 @@ img {
 
 .skip_key {
   display: inline-block;
-  margin-right: 4.8%;
-  width: 0;
+  margin-right: 0;
+  width: 4.3478%;
   border: none;
   background-color: transparent; }
 
@@ -286,7 +291,7 @@ img {
   display: inline-block;
   height: 196px;
   width: 4.167%;
-  border: .5px solid black;
+  border: 0.5px solid black;
   background-color: #ffffff;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px; }
@@ -296,16 +301,21 @@ img {
   position: relative;
   height: 192px;
   margin: 79px 0 26px 0;
-  opacity: 0.9; }
+  opacity: 0.9;
+  padding-left: 0;
+  padding-right: 0; }
 
 .black_keyboard {
-  width: 97%;
+  width: 100%;
   position: absolute;
-  left: 3.4%; }
+  padding-left: 2.0833%;
+  padding-right: 2.0833%; }
 
 .white_keyboard {
   position: absolute;
-  width: 100%; }
+  width: 100%;
+  padding-left: 0;
+  padding-right: 0; }
 
 .music_sheet {
   height: auto;
