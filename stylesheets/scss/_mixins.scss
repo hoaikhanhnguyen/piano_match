@@ -1,12 +1,32 @@
 @import "variables";
 
+@mixin keyboard{
+    width: 100%;
+    position: relative;
+    height: $keyboard_height;
+    margin: $keyboard_margin;
+    opacity: $keyboard_opacity;
+    padding-left: $keyboard_padding-left;
+    padding-right: $keyboard_padding-right;
+}
 @mixin black_key{
     margin-right: $black_key_margin-right;
+    margin-left: $black_key_margin-right;
     height: $black_key_height;
     width: $black_key_width;
     border: $black_key_border;
-    border-radius: 2px;
+    border-radius: $black_key_border-radius;
     border-bottom: none;
+}
+
+@mixin white_key{
+    display: inline-block;
+    height: $white_key_height;
+    width: $white_key_width;
+    border: $white_key_border;
+    background-color: $whiteKey;
+    border-bottom-left-radius: $white_key_border-bottom-left-radius;
+    border-bottom-right-radius: $white_key_border-bottom-right-radius;
 }
 @mixin skip_key{
     display: inline-block;

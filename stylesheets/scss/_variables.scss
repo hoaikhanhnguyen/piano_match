@@ -8,11 +8,23 @@ $keyboard_height: 192px;
 $keyboard_margin: 79px 0 26px 0;
 $keyboard_opacity: .9;
 $keyboard_hover_opacity: 1;
-$black_key_margin-right: 1%;
+$keyboard_padding-left: 0;
+$keyboard_padding-right: 0;
+
+
+$black_key_margin-left: .5%;
+$black_key_margin-right: .5%;
 $black_key_height: 110px;
-$black_key_width: 3.167%;
+$black_key_width: 3.3478%;
 $black_key_border: 1px solid white;
 $black_key_hover_border: 1px solid blueviolet;
+$black_key_border-radius: 2px;
 
-$skip_key_margin-right: 4.8%;
-$skip_key_width: 0;
+$white_key_height: 196px;
+$white_key_width: 4.167%;
+$white_key_border: .5px solid black;
+$white_key_border-bottom-left-radius: 5px;
+$white_key_border-bottom-right-radius: 5px;
+
+$skip_key_margin-right: 0;
+$skip_key_width: 4.3478%;
