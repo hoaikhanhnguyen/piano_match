@@ -89,11 +89,6 @@
   .keyboard {
     margin: 0; }
 
-  .music_sheet {
-    background-image: none !important;
-    background-color: white;
-    border-radius: 0; }
-
   .skip_key10 {
     width: 11% !important; }
 
@@ -282,7 +277,7 @@ img {
 
 .skip_key {
   display: inline-block;
-  margin-right: 4%;
+  margin-right: 4.8%;
   width: 0;
   border: none;
   background-color: transparent; }
@@ -304,9 +299,9 @@ img {
   opacity: 0.9; }
 
 .black_keyboard {
-  width: 100%;
+  width: 97%;
   position: absolute;
-  left: 4.2%; }
+  left: 3.4%; }
 
 .white_keyboard {
   position: absolute;
