@@ -25,15 +25,17 @@
     }
 }
 @media not all and (min-width: 1200px) {
-    .img{
-        margin: 0!important
+    .col-xs-4{
+        padding-right: 0px;
+        padding-left: 40px;
     }
-    .black_keyboard{
-        padding-left: 7.142%;
-        padding-right: 7.142%;
+    .skip_key7{
+        width: 2.17%!important;
     }
     .skip_key10{
-        width: 11%!important;
+        width: 14.28%!important;
+        margin-left: 1%;
+        margin-right: 1%!important;
     }
     @for $i from 0 through 6 {
         #white#{$i} {
@@ -43,8 +45,7 @@
 
     @for $i from 7 through 13 {
         #white#{$i} {
-            opacity: .6;
-            width: 13.29%
+            width: 14.28%
         }
     }
     @for $i from 14 through 23 {
@@ -59,7 +60,9 @@
     }
     @for $i from 7 through 13 {
         #black#{$i} {
-            width: 11.29%
+            width: 10.28%;
+            margin-left: 2%;
+            margin-right: 2%;
         }
     }
     @for $i from 14 through 23 {
@@ -81,6 +84,7 @@ body{
     background-position-y: bottom;
     background-position-x: center;
     min-height: 100vh;
+    padding-top: 70px;
 }
 a{
     font-family: $link_font;
