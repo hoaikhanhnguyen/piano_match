@@ -29,7 +29,7 @@ let score_multiplier = 1;
 $(document).ready(function() {
     stackShuffle();
     $(".card").click(card_clicked);
-    $(".active_key").on("mousedown", key_clicked);
+    $(".active_key").on("mousedown touchstart", key_clicked);
     $("#previous_sound").click(play_previous_sound);
     $("#reset").click(reset_stats);
     $("#music_off").click(stop_music);
