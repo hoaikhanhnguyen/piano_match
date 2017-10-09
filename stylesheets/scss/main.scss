@@ -6,7 +6,7 @@
 @keyframes hoverblink {
     @include hoverblink;
 }
-@media all and (min-width: 1200px) {
+@media all and (min-width: 724px) {
     @for $i from 0 through 6 {
         #white#{$i} {
             opacity: .3;
@@ -15,7 +15,7 @@
 
     @for $i from 7 through 13 {
         #white#{$i} {
-            opacity: .6;
+            opacity: .9;
         }
     }
     @for $i from 14 through 23 {
@@ -24,7 +24,7 @@
         }
     }
 }
-@media not all and (min-width: 1200px) {
+@media not all and (min-width: 724px) {
     .col-xs-4{
         padding-right: 0px;
         padding-left: 40px;
@@ -69,11 +69,6 @@
         #black#{$i} {
             display: none;
         }
-    }
-}
-@media (max-width: 724px) {
-    .keyboard{
-        left: 0;
     }
 }
 body{
