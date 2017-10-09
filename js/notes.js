@@ -18,13 +18,10 @@ for(i=0; i<whiteKeys.length;i++) {
     let currentSound = `piano_sounds/0${whiteKeys[i]}.mp3`;
     $(currentKey).on('mousedown', function () {
         playSound(currentSound);
-        $(currentKey).css("opacity", 1);
+        $(currentKey).css("background-color", "black");
         isDown = true;
-    }).on('mouseup', function () {
-        $(currentKey).css("opacity", 0.6);
-        isDown = false;
-    }).on('mouseleave', function () {
-        $(currentKey).css("opacity", 0.6);
+    }).on('mouseup mouseleave', function () {
+        $(currentKey).css("background-color", "white");
         isDown = false;
     }).on('mouseover', function(){
         if(isDown){
