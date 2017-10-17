@@ -6,7 +6,7 @@
 @keyframes hoverblink {
     @include hoverblink;
 }
-@media all and (min-width: 724px) {
+@media all and (min-width: 720px) {
     @for $i from 0 through 6 {
         #white#{$i} {
             opacity: .3;
@@ -24,7 +24,7 @@
         }
     }
 }
-@media not all and (min-width: 724px) {
+@media not all and (min-width: 720px) {
     .col-xs-4{
         padding-right: 0px;
         padding-left: 40px;
